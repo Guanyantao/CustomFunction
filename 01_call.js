@@ -4,7 +4,7 @@
  * @Author: Aipor
  * @Date: 2023-04-28 10:01:44
  * @LastEditors: Aipor
- * @LastEditTime: 2023-04-28 10:34:46
+ * @LastEditTime: 2023-04-28 10:59:20
  */
 Function.prototype.gytCall = function (thisArg, ...argArry) {
   // 对传入的thisArg的对象进行判断，防止传入数据为非对象类型，默认绑定全局环境
@@ -15,9 +15,11 @@ Function.prototype.gytCall = function (thisArg, ...argArry) {
         : window
       : Object(thisArg);
   const symbolFn = Symbol("fn");
-  thisObj[symbolFn] = this;
+  Object.prototype[symbolFn] = this
+  // thisObj[symbolFn] = this;
   const res = thisObj[symbolFn](...argArry);
-  delete thisObj[symbolFn];
+  // delete thisObj[symbolFn];
+  Object.prototype[symbolFn] = null
   return res;
 };
 
@@ -31,3 +33,4 @@ const obj = {
 bar.call(obj, "arg1", "arg2");
 bar.gytCall(obj, "arg1", "arg2");
 bar.gytCall(null);
+  

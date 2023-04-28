@@ -4,22 +4,24 @@
  * @Author: Aipor
  * @Date: 2023-04-28 10:01:44
  * @LastEditors: Aipor
- * @LastEditTime: 2023-04-28 11:03:51
+ * @LastEditTime: 2023-04-28 11:18:30
  */
 Function.prototype.gytCall = function (thisArg, ...argArry) {
   // 对传入的thisArg的对象进行判断，防止传入数据为非对象类型，默认绑定全局环境
+  let global;
+  try {
+    global = process;
+  } catch (err) {
+    global = window;
+  }
   const thisObj =
-    thisArg === undefined || thisArg === null
-      ? typeof process !== undefined
-        ? process
-        : window
-      : Object(thisArg);
+    thisArg === undefined || thisArg === null ? global : Object(thisArg);
   const symbolFn = Symbol("fn");
-  Object.prototype[symbolFn] = this
+  Object.prototype[symbolFn] = this;
   // thisObj[symbolFn] = this;
   const res = thisObj[symbolFn](...argArry);
   // delete thisObj[symbolFn];
-  Object.prototype[symbolFn] = null
+  delete Object.prototype[symbolFn]
   return res;
 };
 
@@ -34,4 +36,3 @@ bar.call(obj, "arg1", "arg2");
 bar.call(null);
 bar.gytCall(obj, "arg1", "arg2");
 bar.gytCall(null);
-  

@@ -4,7 +4,7 @@
  * @Author: Aipor
  * @Date: 2023-04-28 17:48:31
  * @LastEditors: Aipor
- * @LastEditTime: 2023-05-04 08:46:40
+ * @LastEditTime: 2023-05-04 16:59:19
  */
 // map
 Array.prototype.gytMap = function (fnArg) {
@@ -32,6 +32,7 @@ Array.prototype.gytForEach = function (fnArg) {
     fnArg(this[i], i, this);
   }
 };
+
 const LIST = [1, 23, 6, 6, 7];
 console.log(
   LIST.map((item, index, list) => {

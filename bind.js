@@ -1,11 +1,3 @@
-/*
- * @Descripttion:
- * @version:
- * @Author: Aipor
- * @Date: 2023-04-28 10:01:44
- * @LastEditors: Aipor
- * @LastEditTime: 2023-04-28 17:44:31
- */
 Function.prototype.gytBind = function (thisArg, ...argArry) {
   let global;
   try {

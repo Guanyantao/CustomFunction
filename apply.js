@@ -1,11 +1,3 @@
-/*
- * @Descripttion:
- * @version:
- * @Author: Aipor
- * @Date: 2023-04-28 10:01:44
- * @LastEditors: Aipor
- * @LastEditTime: 2023-04-28 17:33:41
- */
 
 Function.prototype.gytApply = function (thisArg, argArry) {
   argArry = argArry ? argArry : [];

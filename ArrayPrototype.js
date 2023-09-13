@@ -1,11 +1,3 @@
-/*
- * @Descripttion:
- * @version:
- * @Author: Aipor
- * @Date: 2023-04-28 17:48:31
- * @LastEditors: Aipor
- * @LastEditTime: 2023-05-04 16:59:19
- */
 // map
 Array.prototype.gytMap = function (fnArg) {
   if (!Array.isArray(this)) {

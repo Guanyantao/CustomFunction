@@ -1,11 +1,3 @@
-/*
- * @Descripttion:
- * @version:
- * @Author: Aipor
- * @Date: 2023-05-04 15:17:53
- * @LastEditors: Aipor
- * @LastEditTime: 2023-05-04 15:44:42
- */
 function currying(fnArg) {
   if (typeof fnArg !== "function") {
     throw fnArg + "is not a function";
